@@ -27,6 +27,9 @@ public class TopGL : MonoBehaviour
     public GameObject unitychan1;
     public GameObject unitychan2;
 
+    // UI gameobject
+    public GameObject ScoreUI;
+
     // speed manipulator
     public static float speedmult = 0.0f;
 
@@ -64,12 +67,12 @@ public class TopGL : MonoBehaviour
         // special input - number keypad
         getSpecialInput();
 
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape) || Input.GetButton("Fire2"))
         {
             gameStatus = 0;
         }
 
-        if ((previousGameStatus == 0 || previousGameStatus == 5) && Input.GetKey(KeyCode.Return))
+        if ((previousGameStatus == 0 || previousGameStatus == 5) && (Input.GetKey(KeyCode.Return) || Input.GetButton("Fire1")))
         {
             gameStatus = 2;
         }
@@ -118,6 +121,9 @@ public class TopGL : MonoBehaviour
                 gameStatus3_start();
             }
         }
+
+        // UI set active
+        ScoreUI_Determine_Active();
 
         previousGameStatus = gameStatus;
         return;
@@ -251,6 +257,18 @@ public class TopGL : MonoBehaviour
         if (Input.GetKey(KeyCode.F6))
         {
             gameStatus = 0;
+        }
+    }
+
+    void ScoreUI_Determine_Active()
+    {
+        if (TopGL.gameStatus > 1 && !ScoreUI.activeSelf)
+        {
+            ScoreUI.SetActive(true);
+        }
+        else if(TopGL.gameStatus <= 1 && ScoreUI.activeSelf)
+        {
+            ScoreUI.SetActive(false);
         }
     }
 
