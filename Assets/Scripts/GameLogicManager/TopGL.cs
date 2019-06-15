@@ -175,7 +175,7 @@ public class TopGL : MonoBehaviour
         return;
     }
 
-    void gameStatus0_start()
+    public void gameStatus0_start()
     {
         Debug.Log("gameStatus : 0 Start");
         gameStatus = 0;
@@ -330,11 +330,11 @@ public class TopGL : MonoBehaviour
 
     private void IntroUI_Determine_Active()
     {
-        if (!IntroUI.activeSelf && (gameStatus == 1))
+        if (!IntroUI.activeSelf && (gameStatus <= 1))
         {
             IntroUI.SetActive(true);
         }
-        else if (IntroUI.activeSelf && (gameStatus != 1))
+        else if (IntroUI.activeSelf && (gameStatus > 1))
         {
             IntroUI.SetActive(false);
         }

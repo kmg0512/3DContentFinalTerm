@@ -14,6 +14,6 @@ public class IntroUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Text>().text = "Press ESC to Skip";
+        //GetComponent<Text>().text = "Press ESC to Skip";
     }
 }
