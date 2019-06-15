@@ -37,6 +37,10 @@ public class TopGL : MonoBehaviour
     // gameStatus2 exit time
     public const float gameStatus2_exit_time = 2.4f;
     public float gameStatus2_exit_measure;
+
+    // gameStatus4 exit time
+    public const float gameStatus4_exit_time = 0.3f;
+    public float gameStatus4_exit_measure;
     
 
 
@@ -101,6 +105,16 @@ public class TopGL : MonoBehaviour
             }
         }
 
+        // gamestatus4-specific
+        if (gameStatus == 4)
+        {
+            gameStatus4_exit_measure -= Time.deltaTime;
+            if(gameStatus4_exit_measure < 0)
+            {
+                gameStatus3_start();
+            }
+        }
+
         previousGameStatus = gameStatus;
         return;
     }
@@ -132,6 +146,8 @@ public class TopGL : MonoBehaviour
         player2.GetComponent<Rigidbody>().velocity = Vector3.zero;
         puck.transform.position = puck_initialPosition;
         puck.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        beforeGoalWho = 0;
 
         return;
     }
@@ -179,6 +195,8 @@ public class TopGL : MonoBehaviour
         Debug.Log("gameStatus : 4 Start");
         gameStatus = 4;
 
+        gameStatus4_exit_measure = gameStatus4_exit_time;
+
         Time.timeScale = 0.2f;
         EnableMove();
     }
@@ -187,6 +205,15 @@ public class TopGL : MonoBehaviour
     {
         Debug.Log("gameStatus : 5 Start");
         gameStatus = 5;
+
+        if(beforeGoalWho == 1)
+        {
+            player2Score += 1;
+        }
+        else if (beforeGoalWho == 2)
+        {
+            player1Score += 1;
+        }
 
         Time.timeScale = 1.0f;
         DisableMove();

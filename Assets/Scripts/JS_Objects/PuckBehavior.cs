@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PuckBehavior : MonoBehaviour
 {
+
+    public static bool camerashakesignal = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,9 +86,11 @@ public class PuckBehavior : MonoBehaviour
             {
                 case "Table":
                     Debug.Log("trigger: t");
+                    camerashakesignal = true;
                     break;
                 case "Pad":
                     Debug.Log("trigger: p");
+                    camerashakesignal = true;
                     break;
             }
         }
