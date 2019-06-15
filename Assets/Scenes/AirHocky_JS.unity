@@ -1377,6 +1377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee44adad1c4a684a8d1a3e287ff9ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player1: {fileID: 1080191916}
+  player2: {fileID: 1004501539}
+  puck: {fileID: 1518505151}
 --- !u!1001 &1636524494
 PrefabInstance:
   m_ObjectHideFlags: 0

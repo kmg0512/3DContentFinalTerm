@@ -47,7 +47,7 @@ public class Player1Move : MonoBehaviour
 
 
         // FORCE WILL BE WITH YOU
-        rb.AddForce(speed * moveVector, ForceMode.Impulse);
+        rb.AddForce(TopGL.speedmult * speed * moveVector, ForceMode.Impulse);
 
 
     }
