@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Puck
+  - Table
+  - Pad
+  - P1BeforeGoal
+  - P2BeforeGoal
+  - P1Goal
+  - P2Goal
   layers:
   - Default
   - TransparentFX
