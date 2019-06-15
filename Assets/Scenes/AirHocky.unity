@@ -165,7 +165,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415094653}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a9fc7f19f664cba40bc64ce4eb01d5fd, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -540,7 +540,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!64 &1004501541
 MeshCollider:
@@ -549,7 +549,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004501539}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a9fc7f19f664cba40bc64ce4eb01d5fd, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -594,7 +594,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!64 &1080191918
 MeshCollider:
@@ -603,7 +603,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080191916}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a9fc7f19f664cba40bc64ce4eb01d5fd, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -622,7 +622,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 238b77cd4aa16e54a8013b4658c5faa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 0
   rb: {fileID: 0}
   speed: 0
 --- !u!4 &1080191921 stripped
@@ -867,7 +866,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518505151}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a9fc7f19f664cba40bc64ce4eb01d5fd, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -887,7 +886,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!114 &1518505157
 MonoBehaviour:
@@ -901,7 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642a6fdbab365134284c45c44d8d0da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v: -5
+  v: -1
 --- !u!1001 &1636524494
 PrefabInstance:
   m_ObjectHideFlags: 0
