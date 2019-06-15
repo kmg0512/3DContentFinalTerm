@@ -44,6 +44,8 @@ public class Player1Move : MonoBehaviour
         {
             moveVector.x += 1.0f;
         }
+        moveVector.x += Input.GetAxis("Pad1X");
+        moveVector.z -= Input.GetAxis("Pad1Y");
 
 
         // FORCE WILL BE WITH YOU
