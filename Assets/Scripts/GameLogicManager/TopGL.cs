@@ -23,6 +23,10 @@ public class TopGL : MonoBehaviour
     public GameObject player2;
     public GameObject puck;
 
+    // animation character
+    public GameObject unitychan1;
+    public GameObject unitychan2;
+
     // speed manipulator
     public static float speedmult = 0.0f;
 
@@ -176,6 +180,9 @@ public class TopGL : MonoBehaviour
         gameStatus = 2;
 
         gameStatus2_exit_measure = gameStatus2_exit_time;
+
+        unitychan1.GetComponent<WinLoseState>().ResetFlag();
+        unitychan2.GetComponent<WinLoseState>().ResetFlag();
 
         Time.timeScale = 1.0f;
         SetGame();

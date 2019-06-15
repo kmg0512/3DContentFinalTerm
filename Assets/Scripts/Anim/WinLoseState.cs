@@ -20,7 +20,7 @@ public class WinLoseState : MonoBehaviour
     {
         if (TopGL.gameStatus == 5 && flag)
         {
-            if(player == TopGL.beforeGoalWho)
+            if(player != TopGL.beforeGoalWho)
             {
                 animator.SetTrigger("Win");
             }
@@ -30,5 +30,10 @@ public class WinLoseState : MonoBehaviour
             }
             flag = false;
         }
+    }
+
+    public void ResetFlag()
+    {
+        flag = true;
     }
 }

@@ -16,7 +16,7 @@ public class CameraMove : MonoBehaviour
     public float shakeduration;
 
     public GameObject puck;
-    public Vector3 defaultRotation = new Vector3(63.31f, 0.0f, 0.0f);
+    public Vector3 defaultRotation = new Vector3(54.0f, 0.0f, 0.0f);
 
     private Vector3 shakeOriginPos;
 
