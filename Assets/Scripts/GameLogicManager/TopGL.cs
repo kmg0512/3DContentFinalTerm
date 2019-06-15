@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TopGL : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class TopGL : MonoBehaviour
 
     // UI gameobject
     public GameObject ScoreUI;
+    public Text timerUI;
+    public GameObject resultUI;
+    public GameObject IntroUI;
+
 
     // speed manipulator
     public static float speedmult = 0.0f;
@@ -54,11 +59,12 @@ public class TopGL : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameStatus = 0;
-        previousGameStatus = 0;
+        gameStatus = 1;
+        previousGameStatus = 1;
         speedmult = 0.0f;
 
-        gameStatus0_start();
+        gameStatus1_start();
+        //gameStatus0_start();
     }
 
     // Update is called once per frame
@@ -124,6 +130,8 @@ public class TopGL : MonoBehaviour
 
         // UI set active
         ScoreUI_Determine_Active();
+        ResultUI_Determine_Active();
+        IntroUI_Determine_Active();
 
         previousGameStatus = gameStatus;
         return;
@@ -189,6 +197,8 @@ public class TopGL : MonoBehaviour
 
         unitychan1.GetComponent<WinLoseState>().ResetFlag();
         unitychan2.GetComponent<WinLoseState>().ResetFlag();
+
+        StartCoroutine(UpdateTimerUI());
 
         Time.timeScale = 1.0f;
         SetGame();
@@ -272,5 +282,54 @@ public class TopGL : MonoBehaviour
         }
     }
 
+    private IEnumerator UpdateTimerUI()
+    {
+        timerUI.gameObject.SetActive(true);
+        timerUI.text = "3";
+        for (float f = 1; f > 0.2f; f -= Time.deltaTime)
+        {
+            timerUI.color = new Color(1, 1, 0, f);
+            yield return null;
+        }
+        timerUI.text = "2";
+        for (float f = 1; f > 0.2f; f -= Time.deltaTime)
+        {
+            timerUI.color = new Color(1, 1, 0, f);
+            yield return null;
+        }
+        timerUI.text = "1";
+        for (float f = 1; f > 0.2f; f -= Time.deltaTime)
+        {
+            timerUI.color = new Color(1, 1, 0, f);
+            yield return null;
+        }
+        timerUI.color = new Color(1, 1, 0, 1);
+        timerUI.text = "Start!";
+        yield return new WaitForSeconds(0.5f);
+        timerUI.gameObject.SetActive(false);
+    }
 
+    private void ResultUI_Determine_Active()
+    {
+        if (!resultUI.activeSelf && (gameStatus == 5))
+        {
+            resultUI.SetActive(true);
+        }
+        else if(resultUI.activeSelf && (gameStatus != 5))
+        {
+            resultUI.SetActive(false);
+        }
+    }
+
+    private void IntroUI_Determine_Active()
+    {
+        if (!IntroUI.activeSelf && (gameStatus == 1))
+        {
+            IntroUI.SetActive(true);
+        }
+        else if (IntroUI.activeSelf && (gameStatus != 1))
+        {
+            IntroUI.SetActive(false);
+        }
+    }
 }

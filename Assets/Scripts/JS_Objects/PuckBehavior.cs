@@ -39,7 +39,7 @@ public class PuckBehavior : MonoBehaviour
                     break;
             }
         }
-        else if(TopGL.gameStatus == 4)
+        else if(TopGL.gameStatus == 4 || TopGL.gameStatus == 3)
         {
             switch(other.tag)
             {
