@@ -34,6 +34,9 @@ public class TopGL : MonoBehaviour
     public GameObject resultUI;
     public GameObject IntroUI;
 
+    // Audio
+    public AudioSource EndAudio;
+
 
     // speed manipulator
     public static float speedmult = 0.0f;
@@ -85,7 +88,9 @@ public class TopGL : MonoBehaviour
 
         if (previousGameStatus != gameStatus)
         {
-            switch(gameStatus)
+            EndAudio.Stop();
+
+            switch (gameStatus)
             {
                 case 0:
                     gameStatus0_start();
@@ -229,7 +234,9 @@ public class TopGL : MonoBehaviour
         Debug.Log("gameStatus : 5 Start");
         gameStatus = 5;
 
-        if(beforeGoalWho == 1)
+        EndAudio.Play();
+
+        if (beforeGoalWho == 1)
         {
             player2Score += 1;
         }

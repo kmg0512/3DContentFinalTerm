@@ -6,6 +6,7 @@ public class PuckBehavior : MonoBehaviour
 {
 
     public static bool camerashakesignal = false;
+    public ParticleSystem spark;
 
     // Start is called before the first frame update
     void Start()
@@ -87,10 +88,14 @@ public class PuckBehavior : MonoBehaviour
                 case "Table":
                     Debug.Log("trigger: t");
                     camerashakesignal = true;
+                    spark.Play();
+                    GetComponent<AudioSource>().Play();
                     break;
                 case "Pad":
                     Debug.Log("trigger: p");
                     camerashakesignal = true;
+                    spark.Play();
+                    GetComponent<AudioSource>().Play();
                     break;
             }
         }
