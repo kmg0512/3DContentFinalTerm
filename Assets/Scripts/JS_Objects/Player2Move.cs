@@ -46,6 +46,9 @@ public class Player2Move : MonoBehaviour
             moveVector.x += 1.0f;
         }
 
+        moveVector.x += Input.GetAxis("Pad2X");
+        moveVector.z -= Input.GetAxis("Pad2Y");
+
 
         // FORCE WILL BE WITH YOU
         rb.AddForce(TopGL.speedmult * speed * moveVector, ForceMode.Impulse);
