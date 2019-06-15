@@ -140,6 +140,8 @@ public class TopGL : MonoBehaviour
     {
         Debug.Log("gameStatus : 0 Start");
         gameStatus = 0;
+
+        Time.timeScale = 1.0f;
         SetGame();
     }
 
@@ -147,6 +149,8 @@ public class TopGL : MonoBehaviour
     {
         Debug.Log("gameStatus : 1 Start");
         gameStatus = 1;
+
+        Time.timeScale = 1.0f;
         DisableMove();
     }
 
@@ -154,7 +158,10 @@ public class TopGL : MonoBehaviour
     {
         Debug.Log("gameStatus : 2 Start");
         gameStatus = 2;
+
         gameStatus2_exit_measure = gameStatus2_exit_time;
+
+        Time.timeScale = 1.0f;
         SetGame();
     }
 
@@ -162,6 +169,8 @@ public class TopGL : MonoBehaviour
     {
         Debug.Log("gameStatus : 3 Start");
         gameStatus = 3;
+
+        Time.timeScale = 1.0f;
         EnableMove();
     }
 
@@ -169,13 +178,17 @@ public class TopGL : MonoBehaviour
     {
         Debug.Log("gameStatus : 4 Start");
         gameStatus = 4;
-        DisableMove();
+
+        Time.timeScale = 0.2f;
+        EnableMove();
     }
 
     void gameStatus5_start()
     {
         Debug.Log("gameStatus : 5 Start");
         gameStatus = 5;
+
+        Time.timeScale = 1.0f;
         DisableMove();
     }
 
