@@ -33,12 +33,21 @@ public class TopGL : MonoBehaviour
     public static Vector3 player2_initialPosition = new Vector3(2.0f, 1.715f, 0.0f);
     public static Vector3 puck_initialPosition = new Vector3(0.0f, 1.673f, 0.0f);
 
+
+    // gameStatus2 exit time
+    public const float gameStatus2_exit_time = 2.4f;
+    public float gameStatus2_exit_measure;
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
         gameStatus = 0;
         previousGameStatus = 0;
         speedmult = 0.0f;
+
+        gameStatus0_start();
     }
 
     // Update is called once per frame
@@ -52,38 +61,53 @@ public class TopGL : MonoBehaviour
             gameStatus = 0;
         }
 
-        if (previousGameStatus == 5 && Input.GetKey(KeyCode.Return))
+        if ((previousGameStatus == 0 || previousGameStatus == 5) && Input.GetKey(KeyCode.Return))
         {
-            gameStatus = 3;
+            gameStatus = 2;
         }
 
-        if(previousGameStatus != gameStatus)
+        if (previousGameStatus != gameStatus)
         {
             switch(gameStatus)
             {
                 case 0:
-                    SetGame();
+                    gameStatus0_start();
                     break;
                 case 1:
-                    DisableMove();
+                    gameStatus1_start();
                     break;
                 case 2:
-                    SetGame();
+                    gameStatus2_start();
                     break;
                 case 3:
-                    EnableMove();
+                    gameStatus3_start();
                     break;
                 case 4:
-                    DisableMove();
+                    gameStatus4_start();
                     break;
                 case 5:
-                    DisableMove();
+                    gameStatus5_start();
                     break;
+            }
+        }
+
+        // gamestatus2-specific
+        if (gameStatus == 2)
+        {
+            gameStatus2_exit_measure -= Time.deltaTime;
+            if (gameStatus2_exit_measure < 0)
+            {
+                gameStatus3_start();
             }
         }
 
         previousGameStatus = gameStatus;
         return;
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
 
@@ -110,6 +134,49 @@ public class TopGL : MonoBehaviour
         puck.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
         return;
+    }
+
+    void gameStatus0_start()
+    {
+        Debug.Log("gameStatus : 0 Start");
+        gameStatus = 0;
+        SetGame();
+    }
+
+    void gameStatus1_start()
+    {
+        Debug.Log("gameStatus : 1 Start");
+        gameStatus = 1;
+        DisableMove();
+    }
+
+    void gameStatus2_start()
+    {
+        Debug.Log("gameStatus : 2 Start");
+        gameStatus = 2;
+        gameStatus2_exit_measure = gameStatus2_exit_time;
+        SetGame();
+    }
+
+    void gameStatus3_start()
+    {
+        Debug.Log("gameStatus : 3 Start");
+        gameStatus = 3;
+        EnableMove();
+    }
+
+    void gameStatus4_start()
+    {
+        Debug.Log("gameStatus : 4 Start");
+        gameStatus = 4;
+        DisableMove();
+    }
+
+    void gameStatus5_start()
+    {
+        Debug.Log("gameStatus : 5 Start");
+        gameStatus = 5;
+        DisableMove();
     }
 
     void getSpecialInput()
