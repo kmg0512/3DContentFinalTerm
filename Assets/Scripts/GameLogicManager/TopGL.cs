@@ -180,6 +180,7 @@ public class TopGL : MonoBehaviour
         Debug.Log("gameStatus : 0 Start");
         gameStatus = 0;
 
+        Camera.main.GetComponent<Animator>().enabled = false;
         Time.timeScale = 1.0f;
         SetGame();
     }

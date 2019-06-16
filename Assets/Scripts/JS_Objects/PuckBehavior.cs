@@ -24,35 +24,38 @@ public class PuckBehavior : MonoBehaviour
     // Puck Trigger logic
     private void OnTriggerEnter(Collider other)
     {
-        if(TopGL.gameStatus == 3)
+        switch(other.tag)
         {
-            switch(other.tag)
-            {
-                case "P1BeforeGoal":
+            case "P1BeforeGoal":
+                if(TopGL.gameStatus == 3)
+                {
                     TopGL.beforeGoalWho = 1;
                     TopGL.gameStatus = 4;
                     Debug.Log("trigger: p1bg");
-                    break;
-                case "P2BeforeGoal":
+                }
+                break;
+            case "P2BeforeGoal":
+                if(TopGL.gameStatus == 3)
+                {
                     TopGL.beforeGoalWho = 2;
                     TopGL.gameStatus = 4;
                     Debug.Log("trigger: p2bg");
-                    break;
-            }
-        }
-        else if(TopGL.gameStatus == 4 || TopGL.gameStatus == 3)
-        {
-            switch(other.tag)
-            {
-                case "P1Goal":
+                }
+                break;
+            case "P1Goal":
+                if(TopGL.gameStatus == 3 || TopGL.gameStatus == 4)
+                {
                     TopGL.gameStatus = 5;
                     Debug.Log("trigger: p1g");
-                    break;
-                case "P2Goal":
+                }
+                break;
+            case "P2Goal":
+                if(TopGL.gameStatus == 3 || TopGL.gameStatus == 4)
+                {
                     TopGL.gameStatus = 5;
                     Debug.Log("trigger: p2g");
-                    break;
-            }
+                }
+                break;
         }
     }
 
