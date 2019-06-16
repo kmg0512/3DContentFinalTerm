@@ -29,7 +29,8 @@ public class CameraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shakeOriginPos = GetComponent<Transform>().position;
+        //shakeOriginPos = GetComponent<Transform>().position;
+        shakeOriginPos = defaultGamePosition;
     }
 
     // Update is called once per frame
